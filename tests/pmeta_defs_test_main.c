@@ -273,6 +273,7 @@ static void test_pmeta_exif_helpers(void)
 {
 	const struct pmeta_defs_exif_def *def;
 	const char *str;
+	int ret;
 
 	/* 1. Lookup by name */
 	def = pmeta_defs_get_exif_tag_by_name("Exif.Image.Make");
@@ -299,6 +300,16 @@ static void test_pmeta_exif_helpers(void)
 	CU_ASSERT_STRING_EQUAL(str, "EXIF");
 	str = pmeta_defs_ifd_group_to_str(0xFF);
 	CU_ASSERT_STRING_EQUAL(str, "UNKNOWN");
+
+	/* 4. Type to size */
+	ret = pmeta_defs_exif_type_size(PMETA_DEFS_EXIF_TYPE_BYTE);
+	CU_ASSERT_EQUAL(ret, 1);
+	ret = pmeta_defs_exif_type_size(PMETA_DEFS_EXIF_TYPE_LONG);
+	CU_ASSERT_EQUAL(ret, 4);
+	ret = pmeta_defs_exif_type_size(PMETA_DEFS_EXIF_TYPE_RATIONAL);
+	CU_ASSERT_EQUAL(ret, 8);
+	ret = pmeta_defs_exif_type_size(PMETA_DEFS_EXIF_TYPE_IFD + 1);
+	CU_ASSERT_EQUAL(ret, -EINVAL);
 }
 
 

@@ -249,3 +249,30 @@ const char *pmeta_defs_xmp_type_to_str(enum pmeta_defs_xmp_type type)
 		return "UNKNOWN";
 	}
 }
+
+
+int pmeta_defs_exif_type_size(enum pmeta_defs_exif_type type)
+{
+	switch (type) {
+	case PMETA_DEFS_EXIF_TYPE_BYTE:
+		return 1;
+	case PMETA_DEFS_EXIF_TYPE_ASCII:
+		return 1;
+	case PMETA_DEFS_EXIF_TYPE_SHORT:
+		return 2;
+	case PMETA_DEFS_EXIF_TYPE_LONG:
+		return 4;
+	case PMETA_DEFS_EXIF_TYPE_RATIONAL:
+		return 8;
+	case PMETA_DEFS_EXIF_TYPE_UNDEFINED:
+		return 1;
+	case PMETA_DEFS_EXIF_TYPE_SLONG:
+		return 4;
+	case PMETA_DEFS_EXIF_TYPE_SRATIONAL:
+		return 8;
+	case PMETA_DEFS_EXIF_TYPE_IFD:
+		return 4;
+	default:
+		return -EINVAL;
+	}
+}

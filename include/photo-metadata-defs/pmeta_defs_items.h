@@ -62,18 +62,34 @@
 /* codecheck_ignore[COMPLEX_MACRO] */
 #define PMETA_DEFS_EXIF_TAG_LIST(_) \
 	/* --- IFD 0: Main Image --- */ \
+	_EXIF(0x00FE, _, IFD_0, SUBFILE_TYPE, \
+		"SubfileType", LONG, 1) \
+	_EXIF(0x0102, _, IFD_0, BITS_PER_SAMPLE, \
+		"BitsPerSample", SHORT, 0) \
+	_EXIF(0x0106, _, IFD_0, PHOTOMETRIC_INTERPRETATION, \
+		"PhotometricInterpretation", SHORT, 1) \
 	_EXIF(0x010E, _, IFD_0, IMAGE_DESCRIPTION, \
 		"ImageDescription", ASCII, 0) \
 	_EXIF(0x010F, _, IFD_0, MAKE, \
 		"Make", ASCII, 0) \
 	_EXIF(0x0110, _, IFD_0, MODEL, \
 		"Model", ASCII, 0) \
+	_EXIF(0x0111, _, IFD_0, STRIP_OFFSETS, \
+		"StripOffsets", LONG, 1) \
 	_EXIF(0x0112, _, IFD_0, ORIENTATION, \
 		"Orientation", SHORT, 1) \
+	_EXIF(0x0115, _, IFD_0, SAMPLES_PER_PIXEL, \
+		"SamplesPerPixel", SHORT, 1) \
+	_EXIF(0x0116, _, IFD_0, ROWS_PER_STRIP, \
+		"RowsPerStrip", LONG, 1) \
+	_EXIF(0x0117, _, IFD_0, STRIP_BYTE_COUNTS, \
+		"StripByteCounts", LONG, 1) \
 	_EXIF(0x011A, _, IFD_0, X_RESOLUTION, \
 		"XResolution", RATIONAL, 1) \
 	_EXIF(0x011B, _, IFD_0, Y_RESOLUTION, \
 		"YResolution", RATIONAL, 1) \
+	_EXIF(0x011C, _, IFD_0, PLANAR_CONFIGURATION, \
+		"PlanarConfiguration", SHORT, 1) \
 	_EXIF(0x0128, _, IFD_0, RESOLUTION_UNIT, \
 		"ResolutionUnit", SHORT, 1) \
 	_EXIF(0x0131, _, IFD_0, SOFTWARE, \
@@ -82,26 +98,82 @@
 		"DateTime", ASCII, 0) \
 	_EXIF(0x013B, _, IFD_0, ARTIST, \
 		"Artist", ASCII, 0) \
+	_EXIF(0x014a, _, IFD_0, SUB_IFD, \
+		"SubIFD ", LONG, 1) \
 	_EXIF(0x0213, _, IFD_0, YCBCR_POSITIONING, \
 		"YCbCrPositioning", SHORT, 1) \
+	_EXIF(0x02bc, _, IFD_0, APPLICATION_NOTES, \
+		"ApplicationNotes", BYTE, 1) \
+	_EXIF(0x828D, _, IFD_0, CFA_REPEAT_PATTERN_DIM, \
+		"CFARepeatPatternDim", SHORT, 2) \
+	_EXIF(0x828E, _, IFD_0, CFA_PATTERN_2, \
+		"CFAPattern2", SHORT, 0) \
 	_EXIF(0x8298, _, IFD_0, COPYRIGHT, \
 		"Copyright", ASCII, 0) \
 	_EXIF(0x8769, _, IFD_0, EXIF_OFFSET, \
 		"ExifOffset", LONG, 1) \
 	_EXIF(0x8825, _, IFD_0, GPS_INFO_OFFSET, \
 		"GPSInfoOffset", LONG, 1) \
+	_EXIF(0xC612, _, IFD_0, DNG_VERSION, \
+		"DNGVersion", ASCII, 4) \
+	_EXIF(0xC613, _, IFD_0, DNG_BACKWARD_VERSION, \
+		"DNGBackwardVersion", ASCII, 4) \
 	_EXIF(0xC614, _, IFD_RAW, UNIQUE_CAMERA_MODEL, \
 		"UniqueCameraModel", ASCII, 0) \
+	_EXIF(0xC616, _, IFD_RAW, CFA_PLANE_COLOR, \
+		"CFAPlaneColor", UNDEFINED, 0) \
+	_EXIF(0xC617, _, IFD_RAW, CFA_LAYOUT, \
+		"CFALayout", UNDEFINED, 0) \
+	_EXIF(0xC619, _, IFD_RAW, BLACK_LEVEL_REAPEAT_DIM, \
+		"BlackLevelRepeatDim", SHORT, 2) \
 	_EXIF(0xC61A, _, IFD_0, BLACK_LEVEL, \
 		"BlackLevel", LONG, 1) \
 	_EXIF(0xC61D, _, IFD_0, WHITE_LEVEL, \
 		"WhiteLevel", LONG, 1) \
+	_EXIF(0xC61E, _, IFD_0, DEFAULT_SCALE, \
+		"DefaultScale", RATIONAL, 2) \
+	_EXIF(0xC61F, _, IFD_0, DEFAULT_CROP_ORIGIN, \
+		"DefaultCropOrigin", LONG, 2) \
+	_EXIF(0xC620, _, IFD_0, DEFAULT_CROP_SIZE, \
+		"DefaultCropSize", LONG, 2) \
 	_EXIF(0xC621, _, IFD_0, COLOR_MATRIX_1, \
 		"ColorMatrix1", SRATIONAL, 9) \
+	_EXIF(0xC627, _, IFD_0, ANALOG_BALANCE, \
+		"AnalogBalance", RATIONAL, 0) \
 	_EXIF(0xC628, _, IFD_RAW, AS_SHOT_NEUTRAL, \
 		"AsShotNeutral", RATIONAL, 3) \
+	_EXIF(0xC62A, _, IFD_RAW, BASELINE_EXPOSURE, \
+		"BaselineExposure", RATIONAL, 1) \
+	_EXIF(0xC62B, _, IFD_RAW, BASELINE_NOISE, \
+		"BaselineNoise", RATIONAL, 1) \
+	_EXIF(0xC62C, _, IFD_RAW, BASELINE_SHARPNESS, \
+		"BaselineSharpness", RATIONAL, 1) \
+	_EXIF(0xC62D, _, IFD_RAW, BAYER_GREEN_SPLIT, \
+		"BayerGreenSplit", LONG, 1) \
+	_EXIF(0xC62E, _, IFD_RAW, LINEAR_RESPONSE_LIMIT, \
+		"LinearResponseLimit", RATIONAL, 1) \
+	_EXIF(0xC632, _, IFD_RAW, ANTI_ALIAS_STREANGTH, \
+		"AntiAliasStrength", RATIONAL, 1) \
+	_EXIF(0xC633, _, IFD_RAW, SHADOW_SCALE, \
+		"ShadowScale", RATIONAL, 1) \
 	_EXIF(0xC65A, _, IFD_0, CALIBRATION_ILLUMINANT_1, \
 		"CalibrationIlluminant1", SHORT, 1) \
+	_EXIF(0xC65C, _, IFD_0, BEST_QUALITY_SCALE, \
+		"BestQualityScale", RATIONAL, 1) \
+	_EXIF(0xC65D, _, IFD_0, RAW_DATA_UNIQUE_ID, \
+		"RawDataUniqueID", ASCII, 16) \
+	_EXIF(0xC6F8, _, IFD_0, PROFILE_NAME, \
+		"ProfileName", ASCII, 0) \
+	_EXIF(0xC6FD, _, IFD_0, PROFILE_EMBED_POLICY, \
+		"ProfileEmbedPolicy", LONG, 1) \
+	_EXIF(0xC791, _, IFD_0, ORIGINAL_DEFAULT_FINAL_SIZE, \
+		"OriginalDefaultFinalSize", LONG, 2) \
+	_EXIF(0xC792, _, IFD_0, ORIGINAL_BEST_QUALITY_SIZE, \
+		"OriginalBestQualitySize", LONG, 2) \
+	_EXIF(0xC793, _, IFD_0, ORIGINAL_DEFAULT_CROP_SIZE, \
+		"OriginalDefaultCropSize", RATIONAL, 2) \
+	_EXIF(0xc7a7, _, IFD_0, NEW_RAW_IMAGE_DIGEST, \
+		"NewRawImageDigest", SHORT, 16) \
 	\
 	/* --- Exif Sub-IFD: Photography --- */ \
 	_EXIF(0x829A, _, IFD_EXIF, EXPOSURE_TIME, \
@@ -158,6 +230,8 @@
 		"PixelXDimension", LONG, 1) \
 	_EXIF(0xA003, _, IFD_EXIF, PIXEL_Y_DIMENSION, \
 		"PixelYDimension", LONG, 1) \
+	_EXIF(0xA005, _, IFD_EXIF, INTEROP_OFFSET, \
+		" InteropOffset", LONG, 1) \
 	_EXIF(0xA20E, _, IFD_EXIF, FOCAL_PLANE_X_RES, \
 		"FocalPlaneXResolution", RATIONAL, 1) \
 	_EXIF(0xA20F, _, IFD_EXIF, FOCAL_PLANE_Y_RES, \
@@ -190,6 +264,10 @@
 		"BodySerialNumber", ASCII, 0) \
 	_EXIF(0xC62F, _, IFD_EXIF, CAMERA_SERIAL_NUMBER, \
 		"CameraSerialNumber", ASCII, 0) \
+	_EXIF(0xC741, _, IFD_EXIF, OPCODE_LIST_2, \
+		"OpcodeList2", UNDEFINED, 0) \
+	_EXIF(0xC7B5, _, IFD_EXIF, DEFAULT_USER_CROP, \
+		"DefaultUserCrop", RATIONAL, 4) \
 	\
 	/* --- GPS Sub-IFD --- */ \
 	_EXIF(0x0000, _, IFD_GPS, GPS_VERSION_ID, \
@@ -212,12 +290,22 @@
 		"GPSMapDatum", ASCII, 0) \
 	\
 	/* --- IFD 1 & Links --- */ \
+	_EXIF(0x0100, _, IFD_1, IMAGE_WIDTH, \
+		"ImageWidth", LONG, 1) \
+	_EXIF(0x0101, _, IFD_1, IMAGE_LENGTH, \
+		"ImageLength", LONG, 1) \
 	_EXIF(0x0103, _, IFD_1, COMPRESSION, \
 		"Compression", SHORT, 1) \
 	_EXIF(0x0201, _, IFD_1, THUMBNAIL_OFFSET, \
 		"ThumbnailOffset", LONG, 1) \
 	_EXIF(0x0202, _, IFD_1, THUMBNAIL_LENGTH, \
-		"ThumbnailLength", LONG, 1)
+		"ThumbnailLength", LONG, 1) \
+	_EXIF(0x0211, _, IFD_1, YCBCR_COEFF, \
+		"YCbCrCoefficients", RATIONAL, 3) \
+	_EXIF(0x0212, _, IFD_1, YCBCR_SUB_SAMPLING, \
+		"YCbCrSubSampling", SHORT, 2) \
+	_EXIF(0x0214, _, IFD_0, REF_BLACK_WHITE, \
+		"ReferenceBlackWhite", RATIONAL, 6)
 /* clang-format on */
 
 
@@ -272,12 +360,18 @@
 /* codecheck_ignore[COMPLEX_MACRO] */
 #define PMETA_DEFS_XMP_KEY_LIST(_) \
 	/* --- tiff --- */ \
+	_NS(TIFF_COPYRIGHT, _, TIFF, \
+		"Copyright", STRING, 0) \
 	_NS(TIFF_MAKE, _, TIFF, \
 		"Make", STRING, 0) \
 	_NS(TIFF_MODEL, _, TIFF, \
 		"Model", STRING, 0) \
+	_NS(ORIENTATION, _, TIFF,\
+		"Orientation", STRING, 0) \
 	_NS(TIFF_SOFTWARE, _, TIFF, \
 		"Software", STRING, 0) \
+	_NS(YCBCR_POSITIONING, _, TIFF,\
+		"YCbCrPositioning", STRING, 0) \
 	\
 	/* --- xmp --- */ \
 	_NS(CREATE_DATE, _, XMP, \
@@ -288,6 +382,12 @@
 	/* --- dc --- */ \
 	_NS(DC_DATE, _, DC, \
 		"date", STRING, 0) \
+	_NS(DC_DESCRIPTION, _, DC, \
+		"description", STRING, 0) \
+	_NS(DC_FORMAT, _, DC, \
+		"format", STRING, 0) \
+	_NS(DC_RIGHTS, _, DC, \
+		"rights", STRING, 0) \
 	\
 	/* --- drone-parrot --- */ \
 	_NS(MODEL_ID, _, PARROT, \
@@ -324,8 +424,12 @@
 		"DroneLatitude", STRING, 0) \
 	_NS(DRONE_LONGITUDE, _, PARROT, \
 		"DroneLongitude", STRING, 0) \
-	_NS(DRONE_ALTITUDE, _, PARROT, \
+	_NS(DRONE_ALTITUDE_AMSL, _, PARROT, \
 		"DroneAltitudeEgm96Amsl", STRING, 0) \
+	_NS(DRONE_ALTITUDE_ELLIPSOID, _, PARROT, \
+		"DroneAltitudeWgs84Ellipsoid", STRING, 0) \
+	_NS(ALTITUDE_AMSL, _, PARROT, \
+		"AltitudeEgm96Amsl", STRING, 0) \
 	_NS(CAMERA_ROLL, _, PARROT, \
 		"CameraRollDegree", STRING, 0) \
 	_NS(CAMERA_PITCH, _, PARROT, \
@@ -336,8 +440,6 @@
 		"UtcTsAccuracy", STRING, 0) \
 	_NS(SEQUENCE_NUMBER, _, PARROT, \
 		"SequenceNumber", STRING, 0) \
-	_NS(DRONE_ALTITUDE_WGS84, _, PARROT, \
-		"DroneAltitudeWgs84Ellipsoid", STRING, 0) \
 	_NS(DRONE_CAMERA_NED_START_QUAT, _, PARROT, \
 		"CameraNedStartQuat", SEQ, 4) \
 	_NS(THERMAL_SPOT_MIN, _, PARROT, \
@@ -352,6 +454,24 @@
 		"MediaId", STRING, 0) \
 	_NS(RESOURCE_INDEX, _, PARROT, \
 		"ResourceIndex", STRING, 0) \
+	\
+	/* --- exif --- */ \
+	_NS(DATETIME_ORIGINAL, _, EXIF, \
+		"DateTimeOriginal", STRING, 0) \
+	_NS(EXPOSURE_BIAS, _, EXIF, \
+		"ExposureBiasValue", STRING, 0) \
+	_NS(EXPOSURE_TIME, _, EXIF, \
+		"ExposureTime", STRING, 0) \
+	_NS(GPS_LATITUDE, _, EXIF, \
+		"GPSLatitude", STRING, 0) \
+	_NS(GPS_LONGITUDE, _, EXIF, \
+		"GPSLongitude", STRING, 0) \
+	_NS(GPS_ALTITUDE, _, EXIF, \
+		"GPSAltitude", STRING, 0) \
+	_NS(GPS_ALTITUDE_REF, _, EXIF, \
+		"GPSAltitudeRef", STRING, 0) \
+	_NS(ISO_SPEED_RATINGS, _, EXIF,\
+		"ISOSpeedRatings", STRING, 0) \
 	\
 	/* --- Camera (Pix4D) --- */ \
 	_NS(CAMERA_MODEL_TYPE, _, CAMERA, \
@@ -388,8 +508,6 @@
 		"GPSZAccuracy", STRING, 0) \
 	_NS(PRINCIPAL_POINT, _, CAMERA, \
 		"PrincipalPoint", SEQ, 2) \
-	_NS(COLOR_MATRIX, _, CAMERA, \
-		"ColorMatrix", SEQ, 9)
 /* clang-format on */
 
 

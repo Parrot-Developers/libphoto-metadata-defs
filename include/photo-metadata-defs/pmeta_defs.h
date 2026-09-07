@@ -86,8 +86,12 @@ enum pmeta_defs_exif_type {
 	PMETA_DEFS_EXIF_TYPE_RATIONAL = 5,
 	/** 8-bit byte that can take any value depending on the field */
 	PMETA_DEFS_EXIF_TYPE_UNDEFINED = 7,
+	/** 32-bit signed integer */
+	PMETA_DEFS_EXIF_TYPE_SLONG = 9,
 	/** Two 32-bit signed integers (numerator/denominator) */
 	PMETA_DEFS_EXIF_TYPE_SRATIONAL = 10,
+	/** 32-bit offset */
+	PMETA_DEFS_EXIF_TYPE_IFD = 13,
 };
 
 
@@ -260,6 +264,16 @@ pmeta_defs_get_exif_tag_by_name(const char *name);
  */
 PMETA_DEFS_API const char *
 pmeta_defs_exif_type_to_str(enum pmeta_defs_exif_type type);
+
+
+/**
+ * @brief Get the size in bytes of an EXIF data type element.
+ *
+ * @param type The EXIF data type (enum pmeta_defs_exif_type).
+ * @return Size in bytes of a single element of the given type on success,
+ * negative errno value
+ */
+PMETA_DEFS_API int pmeta_defs_exif_type_size(enum pmeta_defs_exif_type type);
 
 
 /**
